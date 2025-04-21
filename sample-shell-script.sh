@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # create a folder
-mkdir vineeth
+mkdir Trinity
 
 # create two files in the folder
-cd vineeth
+cd Trinity
 touch file1 file2
