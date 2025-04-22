@@ -1,2 +1,0 @@
-This is my first shell_scripting
-This is my second shell_scripting
