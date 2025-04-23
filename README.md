@@ -70,3 +70,65 @@ The main command that:
 - z → gzip compression resulting in a compressed archive with the ‘.tar.bz2’ extension.
 
 - tar -xyfz demo.tar.gz = untar
+
+# Day13 Find larger files
+
+- SIZE_THRESHOLD="+100M"   =	Define the size limit (find files larger than 100MB).
+- In the find command:
+
+  Unit	Meaning
+  c	Bytes
+  k	Kilobytes (1024 bytes)
+  M	Megabytes (1024×1024 bytes)
+  G	Gigabytes (1024×1024×1024 bytes)
+
+- No plus (+) → exact size match.
+- With plus (+) → greater than size.
+- With minus (-) → smaller than size.
+
+# Day17 Schedule script via cron
+
+Used to check out cron jobs:
+$ https://crontab.guru/
+
+- crontal -l = list all your current jobs
+- crontab -e = edit your cron jobs
+- crontab -r = remove all cron jobs
+- systemctl status cron = check if cron service is running
+
+If you want to see another user’s cron jobs (needs sudo):
+- sudo crontab -l -u username (shows root's cron jobs)
+
+Creates a cron log to check if it's running:
+- COMMAND="/home/vineeth/Dev/spiky-gold-practice/shell-scripting-30days/day01-hello-world.sh >> /home/vineeth/Dev/spiky-gold-practice/shell-scripting-30days/cron.log 2>&1"
+
+How to check the log whether it's running:
+- tail -f /home/vineeth/Dev/spiky-gold-practice/shell-scripting-30days/cron.log
+
+Scripted Removal of cron (using backup and grep):
+- crontab -l | grep -v 'day01-hello-world.sh' | crontab -
+
+ 	→  crontab -l → list all current cron jobs.
+	→  grep -v 'day01-hello-world.sh' → remove lines containing day01-hello-world.sh.
+	→  crontab - → load the new list without that job.
+
+# Day18 change file permissions
+
+- check currently logged in user = whoami
+- check user accounts = cut -d: -f1 /etc/passwd
+- change ownership of file =  chown user file/directory
+- add a group = groupadd <group-name>
+- check group list = cat /etc/group 
+- change group = chgrp <group-name> <file/dire>
+- add user to excisting group = adduser <user-name> <group-name>
+
+Permissions:
+	→ Read = r = 4
+	→ Write = w = 2
+	→ Execute = x = 1
+- chmod <permissions> <file-name>
+
+How to make the script executable:
+- chmod +x <file-name>
+
+
