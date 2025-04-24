@@ -137,29 +137,21 @@ How to make the script executable:
 - to cut and copy and rename = mv <old-file-name> <new-file-name>
 
 How to rename only particular file with name (file.txt or demo.txt):
-
-Loop through only files starting with 'file' and ending with '.txt'
-
-for file in "$TARGET_DIR"/file*.txt; do
-  # Skip if no matching files
-  [ -e "$file" ] || continue
-
+- Loop through only files starting with 'file' and ending with '.txt'
+	for file in "$TARGET_DIR"/file*.txt; do
+ 	   [ -e "$file" ] || continue
 - for file in "$TARGET_DIR"/file*.txt →  Select only files starting with file
 - [ -e "$file" ] || continue →  This line skips if there are no matching files (otherwise you get errors like mv ./file*.txt: No such file or directory).
 
 How to change all the files name back to old one:
+- Loop through files starting with 'demo_'
+	for file in "$TARGET_DIR"/demo_*.txt; do
+  	   [ -e "$file" ] || continue
 
-Loop through files starting with 'demo_'
-for file in "$TARGET_DIR"/demo_*.txt; do
-  # Skip if no matching files
-  [ -e "$file" ] || continue
-
-Remove the "demo_" prefix to get original name
-  original_name="${base#demo_}"
-
-Rename back
-  mv "$file" "$TARGET_DIR/$original_name"
-
+Rename back:
+- Remove the "demo_" prefix to get original name
+        original_name="${base#demo_}"
+  	mv "$file" "$TARGET_DIR/$original_name"
 - original_name="${base#demo_}" →  Remove "demo_" from the start of filename (using shell substring removal).
 - mv → 	Move (rename) back to original name.
 
