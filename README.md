@@ -2,6 +2,7 @@
 This repository contains hands-on practice tasks for core DevOps concepts..
 
  $ https://umatechnology.org/what-is-shell-scripting-and-why-you-should-use-it/
+ 
  $ file:///home/vineeth/Downloads/Mastering%20Linux%20Shell%20Scripting.pdf
 
 # Day2 print-date-time
