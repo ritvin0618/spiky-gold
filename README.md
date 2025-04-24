@@ -138,7 +138,8 @@ How to make the script executable:
 
 How to rename only particular file with name (file.txt or demo.txt):
 
-# Loop through only files starting with 'file' and ending with '.txt'
+Loop through only files starting with 'file' and ending with '.txt'
+
 for file in "$TARGET_DIR"/file*.txt; do
   # Skip if no matching files
   [ -e "$file" ] || continue
@@ -148,14 +149,15 @@ for file in "$TARGET_DIR"/file*.txt; do
 
 How to change all the files name back to old one:
 
-# Loop through files starting with 'demo_'
+Loop through files starting with 'demo_'
 for file in "$TARGET_DIR"/demo_*.txt; do
   # Skip if no matching files
   [ -e "$file" ] || continue
 
-# Remove the "demo_" prefix to get original name
+Remove the "demo_" prefix to get original name
   original_name="${base#demo_}"
-# Rename back
+
+Rename back
   mv "$file" "$TARGET_DIR/$original_name"
 
 - original_name="${base#demo_}" →  Remove "demo_" from the start of filename (using shell substring removal).
